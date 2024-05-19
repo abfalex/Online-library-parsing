@@ -1,6 +1,7 @@
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 import json
 from livereload import Server
+from more_itertools import chunked
 
 
 env = Environment(
@@ -18,7 +19,7 @@ def on_reload():
     books_details = json.loads(json_file)
 
     rendered_page = template.render(
-        books=books_details
+        books=list(chunked(books_details, 2))
     )
 
     with open('index.html', 'w', encoding="utf8") as file:
