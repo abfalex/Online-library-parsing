@@ -1,6 +1,8 @@
 # Created by .ignore support plugin (hsz.mobi)
 template.html
 assets/books/*
+index.html
+pages
 
 ### Python template
 # Byte-compiled / optimized / DLL files
