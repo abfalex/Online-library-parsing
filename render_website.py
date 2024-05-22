@@ -26,11 +26,13 @@ def on_reload():
     book_groups = list(chunked(books_details, 2))
     pages_groups = list(chunked(book_groups, books_per_column))
 
-    for page_number, pages_groups in enumerate(pages_groups, start=1):
+    for page_number, pages_group in enumerate(pages_groups, start=1):
         page_output_path = os.path.join(page_directory, f"index{page_number}.html")
 
         rendered_page_template = page_template.render(
-            pages_groups=pages_groups
+            pages_group=pages_group,
+            page_number=page_number,
+            total_pages=len(pages_groups)
         )
 
         with open(page_output_path, "w", encoding="UTF-8") as f:
@@ -41,5 +43,5 @@ if __name__ == "__main__":
     on_reload()
     
     server = Server()
-    server.watch("template.html", on_reload)
+    server.watch("page_template.html", on_reload)
     server.serve(root='.')
