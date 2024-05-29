@@ -16,7 +16,7 @@ def on_reload():
         "--json_path",
         type=str,
         help="Path to the json file with book details",
-        default="books.json"
+        default="media/books.json"
     )
 
     args = parser.parse_args()
