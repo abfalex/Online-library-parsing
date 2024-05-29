@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="../assets/styles/styles.min.css">
+  <link rel="shortcut icon" href="../assets/images/logo.png" type="image/x-icon">
+  <title>Online library - Страница {{ page_number }}</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="navigation mt-3">
+      <nav aria-label="Library page navigation">
+        <ul class="pagination justify-content-center">
+          {% if page_number > 1 %}
+            <li class="page-item">
+              <a class="page-link" href="index{{ page_number - 1 }}.html" tabindex="-1" aria-disabled="true">Предыдущая</a>
+            </li>
+          {% else %}
+            <li class="page-item disabled">
+              <a class="page-link" href="index{{ page_number - 1 }}.html" tabindex="-1" aria-disabled="true">Предыдущая</a>
+            </li>
+          {% endif %}
+          {% for num in range(1, total_pages + 1) %}
+            {% if num == page_number %}
+              <li class="page-item active" aria-current="page">
+                <a class="page-link" href="index{{ num }}.html">{{ num }}<span class="sr-only">(current)</span></a>
+              </li>
+            {% else %}
+              <li class="page-item"><a class="page-link" href="index{{ num }}.html">{{ num }}</a></li>
+            {% endif %}
+            {% endfor %}
+            {% if page_number < total_pages %}
+              <li class="page-item">
+                <a class="page-link" href="index{{ page_number + 1 }}.html">Следующая</a>
+              </li>
+            {% else %}
+              <li class="page-item disabled">
+                <a class="page-link" href="index{{ page_number + 1 }}.html">Следующая</a>
+              </li>
+            {% endif %}
+        </ul>
+      </nav>
+    </div>
+    <div class="row">
+      {% for books in pages_group %}
+        {% for book in books %}
+          <div class="col">
+            <div class="card mb-3" style="max-width: 540px;">
+              <div class="row no-gutters">
+                <div class="col-md-4">
+                  <img src="../{{ book['cover_path'] }}" class="card-img" alt="Книга {{ book['title'] }}">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ book['title'] }}</h5>
+                    <p class="card-author">{{ book['author'] }}</p>
+                    <div class="book-genres">
+                      {% for genre in book['genres'] %}
+                        <p class="card-genre badge badge-secondary">{{ genre }}</p>
+                      {% endfor %}
+                    </div>
+                    <a class="link" href="../{{ book['book_path'] }}" target="_blank">Читать</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      <div class="w-100"></div>
+      {% endfor %}
+    </div>
+  </div>
+</body>
+</html>
