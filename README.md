@@ -3,10 +3,12 @@
 This project offers an online library based on books taken from the online library [tululu.org](https://tululu.org/).
 
 ## Demo
+
 To demonstrate the website, please follow the following link:
 https://abfalex.github.io/Online-library-parsing/pages/index1.html
 
 ## Installation
+
 Before installation, make sure you have [Python](https://www.python.org/) 3.x installed
 
 To work with a project, you need to install or clone it.
@@ -44,12 +46,21 @@ pip install -r requirements.txt
 ```
 
 ## Launch
+
 To run, you need to enter the following command into the terminal:
 
 ```bash
-python3 main.py -jp <json_path>
+python3 render_website.py -jp <json_path>
 ```
 
-Instead of `json_path`, you need to specify the path to the json file with book details.
+Instead of `json_path`, you need to specify the path to the json file with book details. All data is stored along the path: `media/books.json`.
+
+Example:
+
+```bash
+python render_website.py -jp media/books.json
+```
+
+Since the current path to the parts file is the default, the argument is optional. It exists so that you can specify the desired path yourself, if necessary.
 
 After launch, all you have to do is go to the address [127.0.0.1:5500](http://127.0.0.1:5500) and that’s it.
