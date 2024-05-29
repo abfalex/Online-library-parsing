@@ -57,5 +57,5 @@ if __name__ == "__main__":
     on_reload()
     
     server = Server()
-    server.watch("page_template.html", on_reload)
-    server.serve(root=".")
+    server.watch("template.html", on_reload)
+    server.serve(root=".", default_filename="pages/index1.html")
