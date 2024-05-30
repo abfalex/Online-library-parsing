@@ -45,7 +45,23 @@ After, you need to install the necessary libraries. Enter this command into the 
 pip install -r requirements.txt
 ```
 
-## Launch
+## Launching a website offline
+
+To launch a website offline you need:
+
+- In the project repository, find the code button
+
+- Download a copy of the project, through the archive or via the link
+
+- Open the downloaded project
+
+Go to the pages folder and:
+
+- Run file index1.html
+
+Also in the media folder you can find downloaded book covers and the books themselves in text format.
+
+## Launch via code
 
 To run, you need to enter the following command into the terminal:
 
