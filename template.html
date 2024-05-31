@@ -51,7 +51,7 @@
             <div class="card mb-3" style="max-width: 540px;">
               <div class="row no-gutters">
                 <div class="col-md-4">
-                  <img src="../{{ book['cover_path'] }}" class="card-img" alt="Книга {{ book['title'] }}">
+                  <img src="../{{ book.cover_path | urlencode }}" class="card-img" alt="Книга {{ book['title'] }}">
                 </div>
                 <div class="col-md-8">
                   <div class="card-body">
@@ -62,7 +62,7 @@
                         <p class="card-genre badge badge-secondary">{{ genre }}</p>
                       {% endfor %}
                     </div>
-                    <a class="link" href="../{{ book['book_path'] }}" target="_blank">Читать</a>
+                    <a class="link" href="../{{ book.book_path | urlencode }}" target="_blank">Читать</a>
                   </div>
                 </div>
               </div>
